@@ -35,8 +35,8 @@ const app = express();
 const addon = ace(app);
 
 // See config.json
-const port = addon && addon.config && addon.config.port();
-app.set('port', port ?? 80);
+const port = addon.config.port();
+app.set('port', port);
 
 // Log requests, using an appropriate formatter by env
 const devEnv = app.get('env') === 'development';
@@ -83,7 +83,7 @@ app.use(express.static(staticDir));
 app.use(nocache());
 
 // Show nicer errors in dev mode
-if (devEnv) app.use(errorHandler());
+app.use(errorHandler());
 
 // Wire up routes
 routes(app, addon);
