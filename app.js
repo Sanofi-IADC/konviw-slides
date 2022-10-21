@@ -1,5 +1,5 @@
 // Entry point for the app
-
+console.log('entry point')
 // Express is the underlying that atlassian-connect-express uses:
 // https://expressjs.com
 import express from 'express';
@@ -75,7 +75,7 @@ app.use(compression());
 app.use(addon.middleware());
 
 // Mount the static files directory
-const staticDir = path.join(__dirname, '');
+const staticDir = path.join(__dirname, 'public');
 app.use(express.static(staticDir));
 
 // Atlassian security policy requirements
