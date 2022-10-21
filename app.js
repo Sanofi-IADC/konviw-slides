@@ -72,7 +72,7 @@ app.use(cookieParser());
 app.use(compression());
 
 // Include atlassian-connect-express middleware
-// app.use(addon.middleware());
+app.use(addon.middleware());
 
 // Mount the static files directory
 const staticDir = path.join(__dirname, 'public');
