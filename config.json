@@ -59,7 +59,7 @@
         // Use views/unauthorized.hbs for error page.
         "errorTemplate": true,
         // Public URL to production app.
-        "localBaseUrl": ".",
+        // "localBaseUrl": "",
         // "store": {
         //     // Don't use memory storage for production, otherwise
         //     // data in the storage will go away when the app server restarts.
@@ -75,12 +75,12 @@
         //     }
         // },
         // The app can only be registered by the products on these domains:
-        "whitelist": [
-            "*.jira-dev.com",
-            "*.atlassian.net",
-            "*.atlassian.com",
-            "*.jira.com"
-        ]
+        // "whitelist": [
+        //     "*.jira-dev.com",
+        //     "*.atlassian.net",
+        //     "*.atlassian.com",
+        //     "*.jira.com"
+        // ]
     },
     "product": "confluence"
 }

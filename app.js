@@ -83,7 +83,7 @@ app.use(express.static(staticDir));
 app.use(nocache());
 
 // Show nicer errors in dev mode
-app.use(errorHandler());
+if (devEnv) app.use(errorHandler());
 
 // Wire up routes
 routes(app, addon);
