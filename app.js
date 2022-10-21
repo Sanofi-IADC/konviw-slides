@@ -35,7 +35,7 @@ const app = express();
 const addon = ace(app);
 
 // See config.json
-const port = 3000
+const port = addon.config.port();
 app.set('port', port);
 
 // Log requests, using an appropriate formatter by env
@@ -86,7 +86,7 @@ app.use(nocache());
 if (devEnv) app.use(errorHandler());
 
 // Wire up routes
-routes(app);
+routes(app, addon);
 
 // Boot the HTTP server
 http.createServer(app).listen(port, () => {
