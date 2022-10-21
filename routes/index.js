@@ -51,15 +51,14 @@ export default function routes(app, addon) {
   // Redirect root path to /atlassian-connect.json,
   // which will be served by atlassian-connect-express.
   app.get('/', (req, res) => {
-    // res.redirect('/atlassian-connect.json')
-    res.send({ dummyData: 'test' })
+    res.redirect('/atlassian-connect.json')
   })
 
-  // app.get('/slide', addon.authenticate(),function (req, res) {
-  //   handleResponseOfCustomMacro(req, res, addon, { view: 'slide', slideScope: true })
-  // })
+  app.get('/slide', addon.authenticate(),function (req, res) {
+    handleResponseOfCustomMacro(req, res, addon, { view: 'slide', slideScope: true })
+  })
 
-  // app.get('/slideSettings', addon.authenticate(), function (req, res) {
-  //   handleResponseOfCustomMacro(req, res, addon, { view: 'slideSettings', slideScope: false })
-  // })
+  app.get('/slideSettings', addon.authenticate(), function (req, res) {
+    handleResponseOfCustomMacro(req, res, addon, { view: 'slideSettings', slideScope: false })
+  })
 }
