@@ -1,5 +1,5 @@
 // Entry point for the app
-console.log('entry point')
+
 // Express is the underlying that atlassian-connect-express uses:
 // https://expressjs.com
 import express from 'express';
@@ -32,7 +32,7 @@ import { addServerSideRendering } from './server-side-rendering';
 
 // Bootstrap Express and atlassian-connect-express
 const app = express();
-// const addon = ace(app);
+const addon = ace(app);
 
 // See config.json
 const port = 3000
