@@ -6,7 +6,7 @@
         "name": "Sanofi IADC",
         "url": "https://github.com/Sanofi-IADC"
     },
-    "baseUrl": "{{localBaseUrl}}",
+    "baseUrl": ".",
     "authentication": {
         "type": "jwt"
     },
