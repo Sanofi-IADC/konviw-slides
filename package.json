@@ -10,7 +10,6 @@
     "react-dom": "ReactDOM"
   },
   "scripts": {
-    "build": "node app.js",
     "start": "node -r esm app.js",
     "watch-server": "nodemon -e js -r esm app.js",
     "watch-jsx-browser": "parcel watch --log-level 1 --no-hmr --global __root_component --out-dir views views/*.jsx",
@@ -33,10 +32,11 @@
     "helmet": "^4.1.1",
     "morgan": "^1.10.0",
     "nocache": "^2.1.0",
-    "pg": "^8.7.3",
+    "pg": "^8.8.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "sequelize": "^6.3.5",
+    "sequelize": "^6.25.3",
+    "sqlite3": "^5.1.2",
     "styled-components": "^5.2.0"
   },
   "devDependencies": {
@@ -49,7 +49,6 @@
     "ngrok": "^4.1.0",
     "nodemon": "^2.0.4",
     "parcel-bundler": "^1.12.4",
-    "parcel-plugin-externals": "^0.5.1",
-    "sqlite3": "^5.0.0"
+    "parcel-plugin-externals": "^0.5.1"
   }
 }
