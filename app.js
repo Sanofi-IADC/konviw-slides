@@ -35,8 +35,8 @@ const app = express();
 const addon = ace(app);
 
 // See config.json
-const port = addon.config.port();
-app.set('port', port);
+const port = addon && addon.config && addon.config.port();
+app.set('port', port ?? 80);
 
 // Log requests, using an appropriate formatter by env
 const devEnv = app.get('env') === 'development';
