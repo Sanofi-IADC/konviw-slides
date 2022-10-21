@@ -35,8 +35,8 @@ const app = express();
 const addon = ace(app);
 
 // See config.json
-const port = addon.config.port();
-app.set('port', port);
+// const port = addon.config.port();
+app.set('port', 300);
 
 // Log requests, using an appropriate formatter by env
 const devEnv = app.get('env') === 'development';
@@ -72,7 +72,7 @@ app.use(cookieParser());
 app.use(compression());
 
 // Include atlassian-connect-express middleware
-app.use(addon.middleware());
+// app.use(addon.middleware());
 
 // Mount the static files directory
 const staticDir = path.join(__dirname, 'public');
