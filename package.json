@@ -50,13 +50,6 @@
     "nodemon": "^2.0.4",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-externals": "^0.5.1",
-    "pkg": "^5.8.0",
     "sqlite3": "^5.0.0"
-  },
-  "pkg": {
-    "scripts": "build/**/*.js",
-    "assets": "views/**/*",
-    "targets": [ "node14-linux-arm64" ],
-    "outputPath": "dist"
   }
 }
