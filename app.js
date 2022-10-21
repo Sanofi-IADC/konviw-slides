@@ -12,7 +12,7 @@ import errorHandler from 'errorhandler';
 import morgan from 'morgan';
 
 // atlassian-connect-express also provides a middleware
-import ace from 'atlassian-connect-express';
+// import ace from 'atlassian-connect-express';
 
 // Use Handlebars as view engine:
 // https://npmjs.org/package/express-hbs
@@ -32,10 +32,10 @@ import { addServerSideRendering } from './server-side-rendering';
 
 // Bootstrap Express and atlassian-connect-express
 const app = express();
-const addon = ace(app);
+// const addon = ace(app);
 
 // See config.json
-const port = addon.config.port();
+const port = 3000
 app.set('port', port);
 
 // Log requests, using an appropriate formatter by env
@@ -72,7 +72,7 @@ app.use(cookieParser());
 app.use(compression());
 
 // Include atlassian-connect-express middleware
-app.use(addon.middleware());
+// app.use(addon.middleware());
 
 // Mount the static files directory
 const staticDir = path.join(__dirname, 'public');
@@ -86,7 +86,7 @@ app.use(nocache());
 if (devEnv) app.use(errorHandler());
 
 // Wire up routes
-routes(app, addon);
+routes(app);
 
 // Boot the HTTP server
 http.createServer(app).listen(port, () => {
