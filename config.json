@@ -59,20 +59,26 @@
         // Use views/unauthorized.hbs for error page.
         "errorTemplate": true,
         // Public URL to production app.
-        // "localBaseUrl": "$LOCAL_BASE_URL",
+        "localBaseUrl": "$LOCAL_BASE_URL",
+        // "store": {
+        //     // Don't use memory storage for production, otherwise
+        //     // data in the storage will go away when the app server restarts.
+        //     // Here, we use PostgreSQL:
+        //     "type": "postgres",
+        //     // PaaS like Heroku will provide DB connection URL through environment variable.
+        //     "url": "$DATABASE_URL",
+        //     "dialectOptions": {
+        //         "ssl": {
+        //             "require": true,
+        //             "rejectUnauthorized": false
+        //         }
+        //     }
+        // },
         "store": {
-            // Don't use memory storage for production, otherwise
-            // data in the storage will go away when the app server restarts.
-            // Here, we use PostgreSQL:
-            "type": "postgres",
-            // PaaS like Heroku will provide DB connection URL through environment variable.
-            "url": "$DATABASE_URL",
-            "dialectOptions": {
-                "ssl": {
-                    "require": true,
-                    "rejectUnauthorized": false
-                }
-            }
+            "adapter": "sequelize",
+            "dialect": "sqlite3",
+            "logging": false,
+            "type": "memory"
         },
         // The app can only be registered by the products on these domains:
         "whitelist": [
