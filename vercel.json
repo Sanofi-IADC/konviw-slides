@@ -4,9 +4,6 @@
       {
         "src": "/*",
         "use": "@vercel/node",
-        "config": {
-          "includeFiles": ["views/**", "static/**", "routes/**"]
-        }
       }
     ],
     "rewrites": [
