@@ -55,32 +55,31 @@
     // the NODE_ENV=production environment variable.
     "production": {
         // PaaS like Heroku will provide HTTP port via environement variable.
-        "port": "$PORT",
+        "port": "{{PORT}}",
         // Use views/unauthorized.hbs for error page.
         "errorTemplate": true,
         // Public URL to production app.
-        // "localBaseUrl": "",
-        // "store": {
-        //     // Don't use memory storage for production, otherwise
-        //     // data in the storage will go away when the app server restarts.
-        //     // Here, we use PostgreSQL:
-        //     "type": "postgres",
-        //     // PaaS like Heroku will provide DB connection URL through environment variable.
-        //     "url": "$DATABASE_URL",
-        //     "dialectOptions": {
-        //         "ssl": {
-        //             "require": true,
-        //             "rejectUnauthorized": false
-        //         }
-        //     }
-        // },
+        "store": {
+            // Don't use memory storage for production, otherwise
+            // data in the storage will go away when the app server restarts.
+            // Here, we use PostgreSQL:
+            "type": "postgres",
+            // PaaS like Heroku will provide DB connection URL through environment variable.
+            "url": "{{DATABASE_URL}}",
+            "dialectOptions": {
+                "ssl": {
+                    "require": true,
+                    "rejectUnauthorized": false
+                }
+            }
+        },
         // The app can only be registered by the products on these domains:
-        // "whitelist": [
-        //     "*.jira-dev.com",
-        //     "*.atlassian.net",
-        //     "*.atlassian.com",
-        //     "*.jira.com"
-        // ]
+        "whitelist": [
+            "*.jira-dev.com",
+            "*.atlassian.net",
+            "*.atlassian.com",
+            "*.jira.com"
+        ]
     },
     "product": "confluence"
 }
