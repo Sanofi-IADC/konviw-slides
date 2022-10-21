@@ -75,7 +75,7 @@ app.use(compression());
 app.use(addon.middleware());
 
 // Mount the static files directory
-const staticDir = path.join(__dirname, 'public');
+const staticDir = path.join(__dirname, '');
 app.use(express.static(staticDir));
 
 // Atlassian security policy requirements
@@ -86,14 +86,7 @@ app.use(nocache());
 if (devEnv) app.use(errorHandler());
 
 // Wire up routes
-// routes(app, addon);
-
-export default async function handler(req, res) {
-
-  console.log('Entered the serverless function')
-
-  return { "dummy": "data"}
-}
+routes(app, addon);
 
 // Boot the HTTP server
 http.createServer(app).listen(port, () => {
