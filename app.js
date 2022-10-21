@@ -86,7 +86,14 @@ app.use(nocache());
 if (devEnv) app.use(errorHandler());
 
 // Wire up routes
-routes(app, addon);
+// routes(app, addon);
+
+export default async function handler(req, res) {
+
+  console.log('Entered the serverless function')
+
+  return { "dummy": "data"}
+}
 
 // Boot the HTTP server
 http.createServer(app).listen(port, () => {
