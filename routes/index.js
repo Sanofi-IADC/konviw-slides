@@ -29,7 +29,6 @@ const handleResponseOfCustomMacro = (req, res, addon, { view, slideScope }) => {
         )
       }
       contents = JSON.parse(contents)
-      console.log(contents)
 
       // Render the view, passing in the {{{body}}}
       let responseData = {
