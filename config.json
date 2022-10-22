@@ -55,17 +55,18 @@
     // the NODE_ENV=production environment variable.
     "production": {
         // PaaS like Heroku will provide HTTP port via environement variable.
-        "port": "{{ $PORT }}",
+        "port": 3000,
         // Use views/unauthorized.hbs for error page.
         "errorTemplate": true,
         // Public URL to production app.
+        "localBaseUrl": "https://slide-macro.herokuapp.com",
         "store": {
             // Don't use memory storage for production, otherwise
             // data in the storage will go away when the app server restarts.
             // Here, we use PostgreSQL:
             "type": "postgres",
             // PaaS like Heroku will provide DB connection URL through environment variable.
-            "url": "{{ $DATABASE_URL }}",
+            "url": "$DATABASE_URL",
             "dialectOptions": {
                 "ssl": {
                     "require": true,
