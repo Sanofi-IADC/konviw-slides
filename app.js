@@ -48,7 +48,7 @@ const addon = ace(app, { config: {
 } });
 
 // See config.json
-const port = process.env.PORT;
+const port = addon.config.port();
 app.set('port', port);
 
 // Log requests, using an appropriate formatter by env
