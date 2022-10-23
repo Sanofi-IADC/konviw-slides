@@ -93,5 +93,5 @@ http.createServer(app).listen(port, () => {
   console.log('App server running at http://' + os.hostname() + ':' + port);
 
   // Enables auto registration/de-registration of app into a host in dev mode
-  if (devEnv) addon.register();
+  // if (devEnv) addon.register();
 });
