@@ -37,9 +37,10 @@ const addon = ace(app, { config: {
     environment: 'production',
     port: process.env.PORT,
     store: {
-      type: "postgres",
-      url: process.env.DATABASE_URL,
-      dialectOptions: pg,
+      adapter: "sequelize",
+      dialect: "sqlite3",
+      logging: false,
+      type: "memory"
     },
     errorTemplate: true,
     localBaseUrl: ".",
