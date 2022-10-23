@@ -1,10 +1,4 @@
-// Entry point for the app
-
-// Express is the underlying that atlassian-connect-express uses:
-// https://expressjs.com
 import express from 'express';
-import * as sqlite3 from 'sqlite3';
-// https://expressjs.com/en/guide/using-middleware.html
 import bodyParser from 'body-parser';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
@@ -30,8 +24,8 @@ import nocache from 'nocache';
 import routes from './routes';
 import { addServerSideRendering } from './server-side-rendering';
 
-// Bootstrap Express and atlassian-connect-express
 const app = express();
+
 const addon = ace(app, { config: {
   production: {
     environment: 'production',
