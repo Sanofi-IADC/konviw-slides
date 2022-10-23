@@ -41,7 +41,7 @@ const addon = ace(app, {
         url: process.env.DATABASE_URL
       },
       errorTemplate: true,
-      localBaseUrl: process.env.BASE_URL,
+      localBaseUrl: process.env.$BASE_URL,
       product: 'confluence'
     }
   }
