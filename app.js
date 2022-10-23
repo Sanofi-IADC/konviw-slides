@@ -3,7 +3,7 @@
 // Express is the underlying that atlassian-connect-express uses:
 // https://expressjs.com
 import express from 'express';
-
+import pg from 'pg';
 // https://expressjs.com/en/guide/using-middleware.html
 import bodyParser from 'body-parser';
 import compression from 'compression';
@@ -39,6 +39,7 @@ const addon = ace(app, { config: {
     store: {
       type: "postgres",
       url: process.env.DATABASE_URL,
+      dialectOptions: pg,
     },
     errorTemplate: true,
     // localBaseUrl: "",
