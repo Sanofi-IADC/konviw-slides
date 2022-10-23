@@ -42,7 +42,7 @@ const addon = ace(app, { config: {
       dialectOptions: pg,
     },
     errorTemplate: true,
-    // localBaseUrl: "",
+    localBaseUrl: ".",
     product: "confluence",
   }
 } });
