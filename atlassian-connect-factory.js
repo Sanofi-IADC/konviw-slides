@@ -179,8 +179,8 @@ const atlassianConnectConfig = {
     }
 }
 
-const atlassianConnectFactory = () => {
-    atlassianConnectConfig.baseUrl = process.env.VERCEL_URL
+const atlassianConnectFactory = (VERCEL_URL) => {
+    atlassianConnectConfig.baseUrl = VERCEL_URL
     fs.writeFile('atlassian-connect.json', JSON.stringify(atlassianConnectConfig), 'utf8', () => {});
 }
 
