@@ -99,7 +99,7 @@ app.use(nocache());
 if (devEnv) app.use(errorHandler());
 
 // Wire up routes
-routes(app);
+routes(app, addon);
 
 // Boot the HTTP server
 http.createServer(app).listen(port, () => {
