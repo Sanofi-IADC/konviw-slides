@@ -1,6 +1,4 @@
-const fs = require('fs');
-
-const atlassianConnectConfig = {
+{
     "key": "slide",
     "name": "Slide",
     "description": "Slide Macro",
@@ -8,7 +6,7 @@ const atlassianConnectConfig = {
         "name": "Sanofi IADC",
         "url": "https://github.com/Sanofi-IADC"
     },
-    "baseUrl": "",
+    "baseUrl": "https://konviw-slides.vercel.app",
     "authentication": {
         "type": "jwt"
     },
@@ -178,10 +176,3 @@ const atlassianConnectConfig = {
         ]
     }
 }
-
-const atlassianConnectFactory = () => {
-    atlassianConnectConfig.baseUrl = 'https://konviw-slides.vercel.app'
-    fs.writeFile('atlassian-connect.json', JSON.stringify(atlassianConnectConfig), 'utf8', () => {});
-}
-
-export default atlassianConnectFactory;

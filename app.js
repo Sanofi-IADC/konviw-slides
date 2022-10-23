@@ -13,84 +13,76 @@ import * as pg from 'pg';
 import helmet from 'helmet';
 import nocache from 'nocache';
 import routes from './routes';
-import atlassianConnectFactory from './atlassian-connect-factory';
 import { addServerSideRendering } from './server-side-rendering';
 
 require('dotenv').config()
 
 const app = express();
 
-const setup = async () => {
-  await atlassianConnectFactory()
-
-  const addon = ace(app, {
-    config: {
-      development: {
-        port: 3000,
-        errorTemplate: true,
-        store: {
-          adapter: 'sequelize',
-          dialect: 'sqlite3',
-          logging: false,
-          type: 'memory'
-        }
-      },
-      production: {
-        environment: 'production',
-        port: process.env.PORT,
-        store: {
-          adapter: 'sequelize',
-          dialect: 'postgres',
-          url: process.env.DATABASE_URL
-        },
-        errorTemplate: true,
-        localBaseUrl: 'https://konviw-slides.vercel.app',
-        product: 'confluence'
+const addon = ace(app, {
+  config: {
+    development: {
+      port: 3000,
+      errorTemplate: true,
+      store: {
+        adapter: 'sequelize',
+        dialect: 'sqlite3',
+        logging: false,
+        type: 'memory'
       }
+    },
+    production: {
+      environment: 'production',
+      port: process.env.PORT,
+      store: {
+        adapter: 'sequelize',
+        dialect: 'postgres',
+        url: process.env.DATABASE_URL
+      },
+      errorTemplate: true,
+      localBaseUrl: 'https://konviw-slides.vercel.app',
+      product: 'confluence'
     }
-  });
+  }
+});
 
+const port = addon.config.port();
+app.set('port', port);
 
-  const port = addon.config.port();
-  app.set('port', port);
+const devEnv = app.get('env') === 'development';
+app.use(morgan(devEnv ? 'dev' : 'combined'));
 
-  const devEnv = app.get('env') === 'development';
-  app.use(morgan(devEnv ? 'dev' : 'combined'));
+const viewsDir = path.join(__dirname, 'views');
+const handlebarsEngine = hbs.express4({partialsDir: viewsDir});
+app.engine('hbs', handlebarsEngine);
+app.set('view engine', 'hbs');
+app.set('views', viewsDir);
 
-  const viewsDir = path.join(__dirname, 'views');
-  const handlebarsEngine = hbs.express4({partialsDir: viewsDir});
-  app.engine('hbs', handlebarsEngine);
-  app.set('view engine', 'hbs');
-  app.set('views', viewsDir);
+addServerSideRendering(app, handlebarsEngine);
 
-  addServerSideRendering(app, handlebarsEngine);
+app.use(helmet.hsts({
+  maxAge: 31536000,
+  includeSubDomains: false
+}));
+app.use(helmet.referrerPolicy({
+  policy: ['origin']
+}));
 
-  app.use(helmet.hsts({
-    maxAge: 31536000,
-    includeSubDomains: false
-  }));
-  app.use(helmet.referrerPolicy({
-    policy: ['origin']
-  }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(cookieParser());
+app.use(compression());
+app.use(addon.middleware());
 
-  app.use(bodyParser.json());
-  app.use(bodyParser.urlencoded({extended: false}));
-  app.use(cookieParser());
-  app.use(compression());
-  app.use(addon.middleware());
+const staticDir = path.join(__dirname, 'public');
+app.use(express.static(staticDir));
 
-  const staticDir = path.join(__dirname, 'public');
-  app.use(express.static(staticDir));
+app.use(nocache());
 
-  app.use(nocache());
+if (devEnv) app.use(errorHandler());
 
-  if (devEnv) app.use(errorHandler());
+routes(app, addon);
 
-  routes(app, addon);
-
-  http.createServer(app).listen(port, () => {
-    if (devEnv) addon.register();
-  });
-}
-
-setup()
+http.createServer(app).listen(port, () => {
+  if (devEnv) addon.register();
+});
