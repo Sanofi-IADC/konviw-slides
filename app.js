@@ -32,30 +32,25 @@ import { addServerSideRendering } from './server-side-rendering';
 
 // Bootstrap Express and atlassian-connect-express
 const app = express();
-// const addon = ace(app, { config: {
-//   production: {
-//     environment: 'production',
-//     port: process.env.PORT,
-//     store: {
-//         adapter?: string,
-//         type?: string,
-//         url?: string,
-//         storage?: string
-//     };
-//     expressErrorHandling: boolean;
-//     errorTemplate: boolean;
-//     validateDescriptor: boolean;
-//     localBaseUrl: string;
-//     jwt: {
-//         validityInMinutes: number;
-//     };
-//     product: string;
-//     hosts: string[];
-//     maxTokenAge: number;
-//     userAgent: string;
-//     watch: boolean;
-//   }
-// } });
+const addon = ace(app, { config: {
+  production: {
+    environment: 'production',
+    port: process.env.PORT,
+    store: {
+      type: "postgres",
+      url: process.env.DATABASE_URL,
+      dialectOptions: {
+          ssl: {
+              "require": true,
+              "rejectUnauthorized": false
+          }
+      }
+    },
+    errorTemplate: true,
+    // localBaseUrl: "",
+    product: "confluence",
+  }
+} });
 
 // See config.json
 const port = process.env.PORT;
