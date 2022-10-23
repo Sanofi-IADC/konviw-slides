@@ -32,7 +32,7 @@ import { addServerSideRendering } from './server-side-rendering';
 
 // Bootstrap Express and atlassian-connect-express
 const app = express();
-// const addon = ace(app);
+const addon = ace(app);
 
 // See config.json
 const port = 300;
