@@ -16,6 +16,8 @@ import routes from './routes';
 import { addServerSideRendering } from './server-side-rendering';
 import atlassianConnectFactory from './atlassian-connect-factory';
 
+require('dotenv').config()
+
 const app = express();
 
 atlassianConnectFactory()
@@ -41,7 +43,7 @@ const addon = ace(app, {
         url: process.env.DATABASE_URL
       },
       errorTemplate: true,
-      localBaseUrl: process.env.$BASE_URL,
+      localBaseUrl: process.env.BASE_URL,
       product: 'confluence'
     }
   }
