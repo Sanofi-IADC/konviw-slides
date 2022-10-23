@@ -10,6 +10,7 @@
     "react-dom": "ReactDOM"
   },
   "scripts": {
+    "build": "vercel env pull",
     "deploy:vercel": "vercel deploy --prod",
     "start": "node -r esm app.js",
     "watch-server": "nodemon -e js -r esm app.js",
