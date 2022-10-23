@@ -181,7 +181,7 @@ const atlassianConnectConfig = {
 
 const atlassianConnectFactory = () => {
     atlassianConnectConfig.baseUrl = process.env.BASE_URL
-    fs.writeFile('atlassian-connect.json', JSON.stringify(atlassianConnectConfig), 'utf8');
+    fs.writeFile('atlassian-connect.json', JSON.stringify(atlassianConnectConfig), 'utf8', () => {});
 }
 
 export default atlassianConnectFactory;
