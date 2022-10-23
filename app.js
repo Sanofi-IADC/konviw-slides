@@ -37,11 +37,11 @@ const addon = ace(app, {
     },
     production: {
       environment: 'production',
-      port: process.env.PORT,
+      port: undefined,
       store: {
         adapter: 'sequelize',
         dialect: 'postgres',
-        url: process.env.DATABASE_URL
+        url: undefined
       },
       errorTemplate: true,
       localBaseUrl: 'https://konviw-slides.vercel.app',
