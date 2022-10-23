@@ -32,7 +32,7 @@ import { addServerSideRendering } from './server-side-rendering';
 
 // Bootstrap Express and atlassian-connect-express
 const app = express();
-const addon = ace(app);
+// const addon = ace(app);
 
 // See config.json
 const port = addon.config.port();
@@ -72,7 +72,7 @@ app.use(cookieParser());
 app.use(compression());
 
 // Include atlassian-connect-express middleware
-app.use(addon.middleware());
+// app.use(addon.middleware());
 
 // Mount the static files directory
 const staticDir = path.join(__dirname, 'public');
