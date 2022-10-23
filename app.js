@@ -3,7 +3,7 @@
 // Express is the underlying that atlassian-connect-express uses:
 // https://expressjs.com
 import express from 'express';
-import pg from 'pg';
+import * as sqlite3 from 'sqlite3';
 // https://expressjs.com/en/guide/using-middleware.html
 import bodyParser from 'body-parser';
 import compression from 'compression';

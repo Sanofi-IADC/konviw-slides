@@ -49,6 +49,6 @@
     "nodemon": "^2.0.4",
     "parcel-bundler": "^1.12.4",
     "parcel-plugin-externals": "^0.5.1",
-    "sqlite3": "^5.0.0"
+    "sqlite3": "^5.1.2"
   }
 }
