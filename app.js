@@ -21,7 +21,7 @@ require('dotenv').config()
 const app = express();
 
 const setup = async () => {
-  await atlassianConnectFactory(process.env.VERCEL_URL)
+  await atlassianConnectFactory()
 
   const addon = ace(app, {
     config: {
