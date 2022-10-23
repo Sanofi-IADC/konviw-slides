@@ -1,4 +1,6 @@
-{
+const fs = require('fs');
+
+const atlassianConnectConfig = {
     "key": "slide",
     "name": "Slide",
     "description": "Slide Macro",
@@ -6,7 +8,7 @@
         "name": "Sanofi IADC",
         "url": "https://github.com/Sanofi-IADC"
     },
-    "baseUrl": "{{ $BASE_URL }}",
+    "baseUrl": "",
     "authentication": {
         "type": "jwt"
     },
@@ -176,3 +178,10 @@
         ]
     }
 }
+
+const atlassianConnectFactory = () => {
+    atlassianConnectConfig.baseUrl = process.env.BASE_URL
+    fs.writeFile('atlassian-connect.json', json, 'utf8');
+}
+
+export default atlassianConnectFactory;
