@@ -50,7 +50,11 @@ export default function routes(app, addon) {
   // Redirect root path to /atlassian-connect.json,
   // which will be served by atlassian-connect-express.
   app.get('/', (req, res) => {
-    res.send(require('../atlassian-connect.json'))
+    res.send({
+      port: addon.config.port(),
+      test: JSON.stringify(addon.config)
+    })
+    // require('../atlassian-connect.json')
   })
 
   app.get('/slide', addon.authenticate(),function (req, res) {
