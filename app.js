@@ -39,12 +39,6 @@ const addon = ace(app, { config: {
     store: {
       type: "postgres",
       url: process.env.DATABASE_URL,
-      dialectOptions: {
-          ssl: {
-              "require": true,
-              "rejectUnauthorized": false
-          }
-      }
     },
     errorTemplate: true,
     // localBaseUrl: "",
