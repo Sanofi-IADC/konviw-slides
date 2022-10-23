@@ -38,7 +38,7 @@ const addon = ace(app, {
         url: process.env.DATABASE_URL
       },
       errorTemplate: true,
-      localBaseUrl: 'https://konviw-slides.vercel.app',
+      localBaseUrl: process.env.BASE_URL,
       product: 'confluence'
     }
   }
