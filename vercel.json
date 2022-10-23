@@ -11,6 +11,5 @@
       "source": "/(.*)",
       "destination": "app.js"
     }
-  ],
-  "devCommand": "vercel env pull"
+  ]
 }
