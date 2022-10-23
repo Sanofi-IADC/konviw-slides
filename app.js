@@ -13,7 +13,7 @@ import * as pg from 'pg';
 import helmet from 'helmet';
 import nocache from 'nocache';
 import routes from './routes';
-// import { addServerSideRendzering } from './server-side-rendering';
+import { addServerSideRendering } from './server-side-rendering';
 
 require('dotenv').config()
 
