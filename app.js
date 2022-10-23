@@ -44,7 +44,7 @@ const setup = async () => {
           url: process.env.DATABASE_URL
         },
         errorTemplate: true,
-        localBaseUrl: process.env.VERCEL_URL,
+        localBaseUrl: 'https://konviw-slides.vercel.app',
         product: 'confluence'
       }
     }

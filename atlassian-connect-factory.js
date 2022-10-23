@@ -180,7 +180,7 @@ const atlassianConnectConfig = {
 }
 
 const atlassianConnectFactory = () => {
-    atlassianConnectConfig.baseUrl = process.env.APP_BASE_URL
+    atlassianConnectConfig.baseUrl = 'https://konviw-slides.vercel.app'
     fs.writeFile('atlassian-connect.json', JSON.stringify(atlassianConnectConfig), 'utf8', () => {});
 }
 
