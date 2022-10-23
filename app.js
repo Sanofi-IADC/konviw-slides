@@ -32,11 +32,34 @@ import { addServerSideRendering } from './server-side-rendering';
 
 // Bootstrap Express and atlassian-connect-express
 const app = express();
-const addon = ace(app);
+// const addon = ace(app, { config: {
+//   production: {
+//     environment: 'production',
+//     port: process.env.PORT,
+//     store: {
+//         adapter?: string,
+//         type?: string,
+//         url?: string,
+//         storage?: string
+//     };
+//     expressErrorHandling: boolean;
+//     errorTemplate: boolean;
+//     validateDescriptor: boolean;
+//     localBaseUrl: string;
+//     jwt: {
+//         validityInMinutes: number;
+//     };
+//     product: string;
+//     hosts: string[];
+//     maxTokenAge: number;
+//     userAgent: string;
+//     watch: boolean;
+//   }
+// } });
 
 // See config.json
-const port = 300;
-app.set('port', 3000);
+const port = process.env.PORT;
+app.set('port', port);
 
 // Log requests, using an appropriate formatter by env
 const devEnv = app.get('env') === 'development';
@@ -93,5 +116,5 @@ http.createServer(app).listen(port, () => {
   console.log('App server running at http://' + os.hostname() + ':' + port);
 
   // Enables auto registration/de-registration of app into a host in dev mode
-  if (devEnv) addon.register();
+  // if (devEnv) addon.register();
 });
