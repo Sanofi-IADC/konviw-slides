@@ -14,9 +14,10 @@ import helmet from 'helmet';
 import nocache from 'nocache';
 import routes from './routes';
 import { addServerSideRendering } from './server-side-rendering';
-import atlassianConnectFactory from './atlassian-connect-factory';
 
 require('dotenv').config()
+
+import atlassianConnectFactory from './atlassian-connect-factory';
 
 const app = express();
 

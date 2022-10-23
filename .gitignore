@@ -10,3 +10,4 @@ views/*.js.map
 views/node
 .vscode
 .vercel
+.env
