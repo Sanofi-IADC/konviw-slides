@@ -13,7 +13,7 @@ import * as pg from 'pg';
 import helmet from 'helmet';
 import nocache from 'nocache';
 import routes from './routes';
-import { addServerSideRendering } from './server-side-rendering';
+// import { addServerSideRendering } from './server-side-rendering';
 
 require('dotenv').config()
 
@@ -63,7 +63,7 @@ app.engine('hbs', handlebarsEngine);
 app.set('view engine', 'hbs');
 app.set('views', viewsDir);
 
-addServerSideRendering(app, handlebarsEngine);
+// addServerSideRendering(app, handlebarsEngine);
 
 app.use(helmet.hsts({
   maxAge: 31536000,
