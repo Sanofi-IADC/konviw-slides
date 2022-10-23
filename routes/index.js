@@ -44,7 +44,7 @@ const handleResponseOfCustomMacro = (req, res, addon, { view, slideScope }) => {
 
 export default function routes(app, addon) {
   app.get('/', (req, res) => {
-    res.send({ data: 'data' })
+    res.send(require('../atlassian-connect.json'))
   })
 
   app.get('/slide', addon.authenticate(),function (req, res) {

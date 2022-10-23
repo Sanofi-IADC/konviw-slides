@@ -18,6 +18,8 @@ import atlassianConnectFactory from './atlassian-connect-factory';
 
 const app = express();
 
+atlassianConnectFactory()
+
 const addon = ace(app, {
   config: {
     development: {
@@ -39,7 +41,7 @@ const addon = ace(app, {
         url: process.env.DATABASE_URL
       },
       errorTemplate: true,
-      localBaseUrl: process.env.VERCEL_URL,
+      localBaseUrl: process.env.BASE_URL,
       product: 'confluence'
     }
   }
@@ -80,8 +82,6 @@ app.use(express.static(staticDir));
 app.use(nocache());
 
 if (devEnv) app.use(errorHandler());
-
-atlassianConnectFactory()
 
 routes(app, addon);
 
