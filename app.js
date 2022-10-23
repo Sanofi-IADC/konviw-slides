@@ -19,6 +19,16 @@ const app = express();
 
 const addon = ace(app, {
   config: {
+    development: {
+      port: 3000,
+      errorTemplate: true,
+      store: {
+        adapter: 'sequelize',
+        dialect: 'sqlite3',
+        logging: false,
+        type: 'memory'
+      }
+    },
     production: {
       environment: 'production',
       port: process.env.PORT,
@@ -29,7 +39,7 @@ const addon = ace(app, {
       },
       errorTemplate: true,
       localBaseUrl: 'https://konviw-slides.vercel.app',
-      product: 'confluence',
+      product: 'confluence'
     }
   }
 });
@@ -72,7 +82,6 @@ if (devEnv) app.use(errorHandler());
 
 routes(app, addon);
 
-// Boot the HTTP server
 http.createServer(app).listen(port, () => {
   if (devEnv) addon.register();
 });
