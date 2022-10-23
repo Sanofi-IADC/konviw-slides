@@ -181,7 +181,7 @@ const atlassianConnectConfig = {
 
 const atlassianConnectFactory = (VERCEL_URL) => {
     atlassianConnectConfig.baseUrl = VERCEL_URL
-    fs.writeFileSync('atlassian-connect.json', JSON.stringify(atlassianConnectConfig), { encoding: 'utf-8' });
+    fs.writeFile('atlassian-connect.json', JSON.stringify(atlassianConnectConfig), 'utf8', () => {});
 }
 
 export default atlassianConnectFactory;
