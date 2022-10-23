@@ -53,11 +53,11 @@ export default function routes(app, addon) {
     res.send(require('../atlassian-connect.json'))
   })
 
-  // app.get('/slide', addon.authenticate(),function (req, res) {
-  //   handleResponseOfCustomMacro(req, res, addon, { view: 'slide', slideScope: true })
-  // })
+  app.get('/slide', addon.authenticate(),function (req, res) {
+    // handleResponseOfCustomMacro(req, res, addon, { view: 'slide', slideScope: true })
+  })
 
-  // app.get('/slideSettings', addon.authenticate(), function (req, res) {
-  //   handleResponseOfCustomMacro(req, res, addon, { view: 'slideSettings', slideScope: false })
-  // })
+  app.get('/slideSettings', addon.authenticate(), function (req, res) {
+    // handleResponseOfCustomMacro(req, res, addon, { view: 'slideSettings', slideScope: false })
+  })
 }
