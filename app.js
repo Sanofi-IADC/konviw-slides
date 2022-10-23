@@ -13,7 +13,7 @@ import * as pg from 'pg';
 import helmet from 'helmet';
 import nocache from 'nocache';
 import routes from './routes';
-import { addServerSideRendering } from './server-side-rendering';
+// import { addServerSideRendzering } from './server-side-rendering';
 
 require('dotenv').config()
 
@@ -37,11 +37,11 @@ const addon = ace(app, {
     },
     production: {
       environment: 'production',
-      port: undefined,
+      port: process.env.PORT,
       store: {
         adapter: 'sequelize',
         dialect: 'postgres',
-        url: undefined
+        url: process.env.DATABASE_URL
       },
       errorTemplate: true,
       localBaseUrl: 'https://konviw-slides.vercel.app',
