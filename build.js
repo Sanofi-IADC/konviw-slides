@@ -181,5 +181,6 @@ const config = {
 
 config.baseUrl = process.env.APP_BASE_URL
 
-fs.wirteFile('atlassian-connect.json', JSON.stringify(config), 'utf-8', () => {});
-
+const writeStream = fs.createWriteStream('atlassian-connect.json')
+writeStream.write(JSON.stringify(config))
+writeStream.end()
