@@ -1,4 +1,6 @@
-{
+const fs = require('fs')
+
+const config = {
     "key": "slide",
     "name": "Slide",
     "description": "Slide Macro",
@@ -176,3 +178,8 @@
         ]
     }
 }
+
+config.baseUrl = process.env.APP_BASE_URL
+
+fs.wirteFile('atlassian-connect.json', JSON.stringify(config)), () => {};
+
