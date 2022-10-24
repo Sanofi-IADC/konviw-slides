@@ -181,5 +181,5 @@ const config = {
 
 config.baseUrl = process.env.APP_BASE_URL
 
-fs.wirteFile('atlassian-connect.json', JSON.stringify(config)), () => {};
+fs.wirteFile('atlassian-connect.json', JSON.stringify(config), 'utf-8', () => {});
 
