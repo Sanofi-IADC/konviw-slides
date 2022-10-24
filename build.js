@@ -8,7 +8,7 @@ const config = {
         "name": "Sanofi IADC",
         "url": "https://github.com/Sanofi-IADC"
     },
-    "baseUrl": "https://konviw-slides.vercel.app",
+    "baseUrl": "",
     "authentication": {
         "type": "jwt"
     },
