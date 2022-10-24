@@ -160,6 +160,24 @@ const config = {
                         "hidden": false
                     },
                     {
+                        "identifier": "slide_fragment",
+                        "name": {
+                            "value": "Slide fragment"
+                        },
+                        "description": {
+                            "value": "Specify if the fragment is to be used to activate the animated paragraphs."
+                        },
+                        "type": "enum",
+                        "required": false,
+                        "multiple": false,
+                        "defaultValue": "no",
+                        "values": [
+                            "yes",
+                            "no"
+                        ],
+                        "hidden": false
+                    },
+                    {
                         "identifier": "slide_background_attachment",
                         "name": {
                             "value": "Background image or video"
