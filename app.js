@@ -14,37 +14,13 @@ import helmet from 'helmet';
 import nocache from 'nocache';
 import routes from './routes';
 import { addServerSideRendering } from './server-side-rendering';
+import aceConfig from './aceConfig';
 
 require('dotenv').config()
 
 const app = express();
 
-const addon = ace(app, {
-  config: {
-    development: {
-      port: 3000,
-      errorTemplate: true,
-      store: {
-        adapter: 'sequelize',
-        dialect: 'sqlite3',
-        logging: false,
-        type: 'memory'
-      }
-    },
-    production: {
-      environment: 'production',
-      port: process.env.PORT,
-      store: {
-        adapter: 'sequelize',
-        dialect: 'postgres',
-        url: process.env.DATABASE_URL
-      },
-      errorTemplate: true,
-      localBaseUrl: process.env.APP_BASE_URL,
-      product: 'confluence'
-    }
-  }
-});
+const addon = ace(app, aceConfig);
 
 const port = addon.config.port();
 app.set('port', port);
@@ -53,7 +29,7 @@ const devEnv = app.get('env') === 'development';
 app.use(morgan(devEnv ? 'dev' : 'combined'));
 
 const viewsDir = path.join(__dirname, 'views');
-const handlebarsEngine = hbs.express4({partialsDir: viewsDir});
+const handlebarsEngine = hbs.express4({ partialsDir: viewsDir });
 app.engine('hbs', handlebarsEngine);
 app.set('view engine', 'hbs');
 app.set('views', viewsDir);

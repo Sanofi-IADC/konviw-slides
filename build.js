@@ -160,20 +160,20 @@ const config = {
                         "hidden": false
                     },
                     {
-                        "identifier": "slide_fragment",
+                        "identifier": "slide_paragraph_animation",
                         "name": {
-                            "value": "Slide fragment"
+                            "value": "Paragraph animation"
                         },
                         "description": {
-                            "value": "Specify if the fragment is to be used to activate the animated paragraphs."
+                            "value": "Do You want animated paragraph?"
                         },
                         "type": "enum",
                         "required": false,
                         "multiple": false,
                         "defaultValue": "no",
                         "values": [
-                            "yes",
-                            "no"
+                            "no",
+                            "yes"
                         ],
                         "hidden": false
                     },
