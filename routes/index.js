@@ -34,8 +34,6 @@ const handleResponseOfCustomMacro = (req, res, addon, { view, slideScope }) => {
   )
 }
 
-export const maxDuration = 300
-
 export default function routes(app, addon) {
   app.get('/', (_, res) => {
     res.send(require('../atlassian-connect.json'))
