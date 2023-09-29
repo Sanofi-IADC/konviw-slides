@@ -13,8 +13,9 @@
     }
   ],
   "functions": {
-    "app.js": {
-      "maxDuration": 300
+    "*.js": {
+      "maxDuration": 300,
+      "memory": 3008
     }
   }
 }
