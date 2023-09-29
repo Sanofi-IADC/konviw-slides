@@ -11,5 +11,10 @@
       "source": "/(.*)",
       "destination": "app.js"
     }
-  ]
+  ],
+  "functions": {
+    "app.js": {
+      "maxDuration": 300
+    }
+  }
 }
