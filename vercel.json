@@ -11,11 +11,5 @@
       "source": "/(.*)",
       "destination": "app.js"
     }
-  ],
-  "functions": {
-    "*.js": {
-      "maxDuration": 300,
-      "memory": 3008
-    }
-  }
+  ]
 }
