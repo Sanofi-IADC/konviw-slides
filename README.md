@@ -61,8 +61,8 @@ docker build -f ./Dockerfile -t konviw-slides:<VERSION> .
 ```
 4. Create Tag on that image using:
 ```bash
-docker tag 3ba0f4a8b1d3 <IMAGE>:latest
-docker tag 3ba0f4a8b1d3 <IMAGE>:<VERSION>
+docker tag <IMAGE_ID> <IMAGE>:latest
+docker tag <IMAGE_ID> <IMAGE>:<VERSION>
 ```
 5. Push images to artifactory using:
 ```bash
