@@ -9,5 +9,5 @@ views/*.js
 views/*.js.map
 views/node
 .vscode
-.vercel
 .env
+atlassian-connect.json

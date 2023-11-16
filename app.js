@@ -16,13 +16,8 @@ import setcache from './middleware/setcache';
 import routes from './routes';
 import { addServerSideRendering } from './server-side-rendering';
 import aceConfig from './aceConfig';
-import VercelAdapter from './adapters/Vercel';
-
-require('dotenv').config()
 
 const app = express();
-
-ace.store.register('vercel', (logger, options) => new VercelAdapter(logger, options));
 
 const addon = ace(app, aceConfig);
 
