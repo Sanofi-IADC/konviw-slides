@@ -57,7 +57,7 @@ NODE_ENV=deployment
 2. You need to be authenticated to Your Artficatory for example JFrog
 3. Create Docker image locally using:
 ```bash
-docker build -f ./Dockerfile -t konviw-slides:<VERSION> .
+docker build --build-arg APP_BASE_URL=<URL> -f ./Dockerfile -t konviw-slides:<VERSION> .
 ```
 4. Create Tag on that image using:
 ```bash

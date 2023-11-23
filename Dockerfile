@@ -1,8 +1,10 @@
 FROM --platform=linux/amd64 node:16.13.0-alpine
 
+ARG APP_BASE_URL
+
 WORKDIR /app
 
-ENV APP_BASE_URL=/
+ENV APP_BASE_URL=${APP_BASE_URL}
 ENV NODE_ENV=deployment
 
 COPY package.json .

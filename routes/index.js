@@ -39,6 +39,10 @@ export default function routes(app, addon) {
     res.send(require('../atlassian-connect.json'))
   })
 
+  app.get('*', (_, res) => {
+    res.send(require('../atlassian-connect.json'))
+  });
+
   app.get('/slide', addon.authenticate(), (req, res) => {
     handleResponseOfCustomMacro(req, res, addon, { view: 'slide', slideScope: true })
   })
