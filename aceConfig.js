@@ -20,7 +20,7 @@ const aceConfig = {
       store: {
         adapter: 'sequelize',
         dialect: 'postgres',
-        url: `postgres://${process.env.POSTGRES_USERNAME}:${process.env.POSTGRES_PASSWORD}@${process.env.POSTGRES_URL}:${process.env.POSTGRES_PORT}/${process.env.POSTGRES_DB}`,
+        url: `postgres://${process.env.POSTGRESQL_USER}:${process.env.POSTGRESQL_PASSWORD}@${process.env.POSTGRESQL_URL}:${process.env.POSTGRESQL_PORT}/${process.env.POSTGRESQL_DATABASE}`,
         pool: {
           max: 1,
           min: 0,
