@@ -43,11 +43,11 @@ Configure .env file
 ```bash
 APP_PORT=8080
 APP_BASE_URL=/
-POSTGRES_USERNAME
-POSTGRES_PASSWORD
-POSTGRES_URL
-POSTGRES_PORT
-POSTGRES_DB
+POSTGRESQL_USERNAME
+POSTGRESQL_PASSWORD
+POSTGRESQL_URL
+POSTGRESQL_PORT
+POSTGRESQL_DATABASE
 NODE_ENV=deployment
 ```
 
@@ -57,7 +57,7 @@ NODE_ENV=deployment
 2. You need to be authenticated to Your Artficatory for example JFrog
 3. Create Docker image locally using:
 ```bash
-docker build -f ./Dockerfile -t konviw-slides:<VERSION> .
+docker build --build-arg APP_BASE_URL=<URL> -f ./Dockerfile -t konviw-slides:<VERSION> .
 ```
 4. Create Tag on that image using:
 ```bash
@@ -73,11 +73,11 @@ docker push <IMAGE>:latest
 6. Once application is configured You need to open Workloads -> Deployments section using Administrator Access in which You need to specify envivonment variables:
 ```bash
 APP_PORT=8080
-POSTGRES_USERNAME - Specify value once You will create step 8.
-POSTGRES_PASSWORD - Specify value once You will create step 8.
-POSTGRES_URL - Specify value once You will create step 8 - POSTGRES_URL it is a POD IP
-POSTGRES_PORT - Specify value once You will create step 8.
-POSTGRES_DB - Specify value once You will create step 8.
+POSTGRESQL_USER - Specify value once You will create step 8.
+POSTGRESQL_PASSWORD - Specify value once You will create step 8.
+POSTGRESQL_URL - Specify value once You will create step 8 - POSTGRESQL_URL - Service IP
+POSTGRESQL_PORT - Specify value once You will create step 8.
+POSTGRESQL_DATABASE - Specify value once You will create step 8.
 HTTP_PROXY
 http_proxy
 HTTPS_PROXY
@@ -93,11 +93,10 @@ rhel8/postgresql-12
 8. Once service with pod is created You need to You need to open Workloads -> Deployments section using Administrator Access in which You need to specify envivonment variables for database:
 ```bash
 POSTGRESQL_ADMIN_PASSWORD
-POSTGRESQL_DATABASE
-POSTGRESQL_PASSWORD
 POSTGRESQL_USER
+POSTGRESQL_PASSWORD
+POSTGRESQL_DATABASE
 ```
-POSTGRESQL_ADMIN_PASSWORD
 9. Last step is to create Visual connector (You can do it using arrow between Application and Postgres Database)
 
 #### Links
