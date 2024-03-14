@@ -97,7 +97,11 @@ POSTGRESQL_USER
 POSTGRESQL_PASSWORD
 POSTGRESQL_DATABASE
 ```
-9. Last step is to create Visual connector (You can do it using arrow between Application and Postgres Database)
+9. Attach PVC to database deployment with mount path property:
+```
+Mount path: var/lib/pgsql/data
+```
+10. Last step is to create Visual connector (You can do it using arrow between Application and Postgres Database)
 
 #### Links
 - Red Hat OpenShift -> https://www.redhat.com/en/technologies/cloud-computing/openshift/container-platform
