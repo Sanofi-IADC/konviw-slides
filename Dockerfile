@@ -11,8 +11,6 @@ COPY package.json .
 COPY package-lock.json .
 COPY . .
 
-RUN apk add --update nodejs npm
-
 RUN npm cache clean --force
 
 RUN npm ci --legacy-peer-deps
