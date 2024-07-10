@@ -8,7 +8,6 @@ import ace from 'atlassian-connect-express';
 import hbs from 'express-hbs';
 import http from 'http';
 import path from 'path';
-import * as sqlite3 from 'sqlite3';
 import * as pg from 'pg';
 import helmet from 'helmet';
 import nocache from 'nocache';
