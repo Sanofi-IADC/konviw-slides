@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 node:16.13.0-alpine
+FROM --platform=linux/amd64 node:18-alpine
 
 ARG APP_BASE_URL
 
@@ -13,7 +13,7 @@ COPY . .
 
 RUN npm cache clean --force
 
-RUN npm ci --legacy-peer-deps
+RUN npm ci
 
 RUN npm run build
 
