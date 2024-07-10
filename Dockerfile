@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 node:16.13.0-alpine
+FROM --platform=linux/amd64 node:18-alpine
 
 ARG APP_BASE_URL
 
@@ -10,6 +10,8 @@ ENV NODE_ENV=deployment
 COPY package.json .
 COPY package-lock.json .
 COPY . .
+
+RUN apk add --update nodejs npm
 
 RUN npm cache clean --force
 
