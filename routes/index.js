@@ -17,6 +17,12 @@ const handleResponseOfCustomMacro = (req, res, addon, { view, slideScope }) => {
       '/macro/id/' +
       macroId,
     function (err, response, contents) {
+      if (err) {
+        console.log(err, 'error')
+      }
+
+      console.log(contents, 'contents')
+
       contents = JSON.parse(contents)
 
       let responseData = {
