@@ -3,7 +3,7 @@
     "node": "16.13.0"
   },
   "name": "slide-macro",
-  "version": "0.0.62",
+  "version": "0.0.66",
   "private": true,
   "externals": {
     "react": "React",
@@ -49,10 +49,8 @@
     "eslint": "^7.10.0",
     "eslint-plugin-react": "^7.21.3",
     "longjohn": "^0.2.12",
-    "ngrok": "^4.1.0",
     "nodemon": "^2.0.4",
     "parcel-bundler": "^1.12.4",
-    "parcel-plugin-externals": "^0.5.1",
-    "sqlite3": "^5.1.2"
+    "parcel-plugin-externals": "^0.5.1"
   }
 }
